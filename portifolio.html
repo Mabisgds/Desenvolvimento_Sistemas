@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Gabriela | Desenvolvedora Back-End</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0a0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Background Particles */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #a855f7;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ccc;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        /* Hero */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            margin-top: 20px;
+            max-width: 600px;
+            color: #bbb;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            margin-top: 30px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #a855f7aa;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 60px;
+            color: #a855f7;
+        }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px #7c3aed55;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #a855f7;
+        }
+
+        /* Tech */
+        .tech {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            font-size: 4rem;
+        }
+
+        .tech i {
+            transition: 0.3s;
+        }
+
+        .tech i:hover {
+            transform: scale(1.2);
+            color: #a855f7;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            font-size: 2.5rem;
+            margin: 20px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .contact a:hover {
+            color: #a855f7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #050508;
+            color: #777;
+        }
+
+        /* Scroll Animation */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media(max-width:768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <nav>
+        <h2>MG</h2>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#tech">Tecnologias</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Maria Gabriela</h1>
+        <p>Desenvolvedora Back-End focada em APIs REST, Banco de Dados e soluções escaláveis.</p>
+        <a href="#projetos" class="btn">Ver Projetos</a>
+    </header>
+
+    <section id="sobre" class="hidden">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Especialidade</h3>
+                <p>Modelagem de dados, integração com APIs e desenvolvimento back-end robusto.</p>
+            </div>
+            <div class="card">
+                <h3>Perfil</h3>
+                <p>Analítica, detalhista e movida por desafios técnicos.</p>
+            </div>
+            <div class="card">
+                <h3>Objetivo</h3>
+                <p>Criar sistemas que gerem impacto real e entreguem performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="hidden">
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="grid">
+
+            <!-- BATCAVE -->
+            <div class="card">
+                <h3>🦇 BatCave</h3>
+
+                <p><strong>Problema:</strong><br>
+                    A BAT Brasil enfrentava dificuldades na gestão do tempo de resposta aos chamados de manutenção
+                    eletrônica.
+                    A comunicação manual via telefone impedia a mensuração precisa do atendimento, desde a paralisação
+                    da máquina até a solução do problema.
+                    Não havia controle eficiente de indicadores como <strong>Downtime</strong>, <strong>MTBF</strong> e
+                    <strong>MTTR</strong>.
+                </p>
+
+                <p style="margin-top:15px;">
+                    <strong>Solução:</strong><br>
+                    Desenvolvimento de um sistema web para registro, acompanhamento e mensuração automática dos
+                    chamados,
+                    permitindo controle de tempo de máquina parada e indicadores de performance.
+                </p>
+
+                <p style="margin-top:15px;">
+                    <strong>Tecnologias:</strong><br>
+                    HTML • CSS • JavaScript
+                </p>
+
+                <a href="https://github.com/Mabisgds/BATCave/tree/main" target="_blank" class="btn"
+                    style="margin-top:20px; display:inline-block;">
+                    Ver no GitHub
+                </a>
+            </div>
+
+            <!-- WORLD GUESSING GAME -->
+            <div class="card">
+                <h3>🌍 World Guessing Game (Ranking Edition)</h3>
+
+                <p><strong>Conceito:</strong><br>
+                    Jogo educativo que sorteia um país via API e desafia o usuário a adivinhar com base em dicas como
+                    capital ou continente.
+                    O sistema calcula pontuação dinâmica, aplica bônus matemáticos e salva ranking em banco de dados.
+                </p>
+
+                <p style="margin-top:15px;">
+                    <strong>Arquitetura:</strong><br>
+                    ✔ POO com separação de responsabilidades<br>
+                    ✔ Consumo de API REST<br>
+                    ✔ Persistência com SQLite<br>
+                    ✔ Interface gráfica com Tkinter
+                </p>
+
+                <p style="margin-top:15px;">
+                    <strong>Tecnologias & Conceitos:</strong><br>
+                    API Rest Countries • math • datetime • sqlite3 • tkinter • random
+                </p>
+
+                <a href="https://github.com/Mabisgds/world_guessing_game.git" target="_blank" class="btn"
+                    style="margin-top:20px; display:inline-block;">
+                    Ver no GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="competencias" class="hidden">
+        <h2 class="section-title">Competências & Formação</h2>
+
+        <div class="grid">
+
+            <!-- HARD SKILLS -->
+            <div class="card">
+                <h3>💻 Hard Skills</h3>
+                <p>
+                    • SQL<br>
+                    • Python<br>
+                    • Java<br>
+                    • JavaScript<br>
+                    • CSS<br>
+                    • HTML
+                </p>
+            </div>
+
+            <!-- SOFT SKILLS -->
+            <div class="card">
+                <h3>🧠 Soft Skills</h3>
+                <p>
+                    • Trabalho em equipe<br>
+                    • Comunicação<br>
+                    • Organização<br>
+                    • Liderança<br>
+                    • Proatividade<br>
+                    • Criatividade
+                </p>
+            </div>
+
+            <!-- FORMAÇÃO -->
+            <div class="card">
+                <h3>🎓 Formação</h3>
+                <p>
+                    Ensino Médio (Cursando)<br><br>
+                    Técnico em Desenvolvimento de Sistemas<br>
+                    <strong>SENAI</strong>
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <section id="tech" class="hidden">
+        <h2 class="section-title">Tecnologias</h2>
+        <div class="tech">
+            <i class="devicon-javascript-plain colored"></i>
+            <i class="devicon-python-plain colored"></i>
+            <i class="devicon-mysql-plain colored"></i>
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-git-plain colored"></i>
+            <i class="devicon-github-original"></i>
+        </div>
+    </section>
+    <section id="ferramentas" class="hidden">
+        <h2 class="section-title">Ferramentas</h2>
+
+        <div class="tech">
+            <i class="devicon-netbeans-plain colored" title="NetBeans"></i>
+            <i class="devicon-mysql-plain colored" title="MySQL Workbench"></i>
+            <i class="devicon-github-original" title="GitHub"></i>
+            <i class="devicon-vscode-plain colored" title="VS Code"></i>
+        </div>
+    </section>
+
+    <section id="contato" class="hidden">
+        <h2 class="section-title">Contato</h2>
+
+        <div class="contact">
+            <a href="mailto:mariagabrielasdg@gmail.com" title="Email">
+                📧
+            </a>
+
+            <a href="https://github.com/Mabisgds" target="_blank" title="GitHub">
+                <i class="devicon-github-original"></i>
+            </a>
+
+            <a href="https://br.linkedin.com/in/maria-gabriela-g-a9500b3b3" target="_blank" title="LinkedIn">
+                <i class="devicon-linkedin-plain colored"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Maria Gabriela | Desenvolvedora Back-End
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+
+        document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+        // Particles
+        const canvas = document.getElementById("particles");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2,
+                dx: (Math.random() - 0.5),
+                dy: (Math.random() - 0.5)
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#a855f7";
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+</body>
+
+</html>
